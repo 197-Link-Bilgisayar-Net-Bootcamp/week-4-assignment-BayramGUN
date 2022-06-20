@@ -8,4 +8,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Onion.Data\Onion.Data.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="JWT" Version="9.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.6" />
+    <PackageReference Include="StackExchange.Redis" Version="2.5.61" />
+  </ItemGroup>
 </Project>

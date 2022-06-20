@@ -22,7 +22,11 @@ builder.Services.AddScoped<ITokenService, TokenService>;
 builder.Services.AddScoped<UserService, IUserService>;
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+builder.Services.AddSingleton<ICacheService, InMemoryCacheService>();
+builder.Services.AddSingleton<IConnectionMultiplexer>(x => 
+    x.ConnectionMultiplexer.Connect(Configuration.GetValue<string>("RedisConnection"))
+);
+builder.Services.AddSingleton<ICacheService, RedisCacheService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
