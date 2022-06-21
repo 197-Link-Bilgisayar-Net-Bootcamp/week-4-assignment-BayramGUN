@@ -35,7 +35,7 @@ public class TokenService
         tokenModel.AccessToken = tokenHandler.WriteToken(securityToken);
         tokenModel.RefreshToken = CreateRefreshToken();
         
-        return tokenModel;
+        return tokenDto;
     }
     public string CreateRefreshToken()
     {
